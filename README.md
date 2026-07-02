@@ -49,7 +49,7 @@ Check the environment:
 python epnet_cli.py check-env
 ```
 
-## Curated Demo Motions
+## Demo Motions
 
 The included seven motions are ordered from weaker to stronger waist bending:
 
@@ -174,4 +174,5 @@ drive-min-frames = 3
 alpha-cutoff = 0.005
 rest-scale = 1.0
 ```
+
 
