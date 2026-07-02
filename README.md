@@ -1,5 +1,5 @@
 # Self-supervised-Garment-Dynamics-with-Persistent-Wrinkles
-This is our ECCV 2026 paper, Self-supervised Garment Dynamics with Persistent Wrinkles.
+This is our ECCV 2026 paper, Self-supervised Garment Dynamics with Persistent Wrinkles. Paper: [https://doi.org/10.48550/arXiv.2606.25065](https://doi.org/10.48550/arXiv.2606.25065).
 
 ## EPNet
 
@@ -174,6 +174,7 @@ drive-min-frames = 3
 alpha-cutoff = 0.005
 rest-scale = 1.0
 ```
+
 
 
 
