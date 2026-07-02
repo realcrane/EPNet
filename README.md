@@ -1,15 +1,17 @@
 # Self-supervised-Garment-Dynamics-with-Persistent-Wrinkles
 This is our ECCV 2026 paper, Self-supervised Garment Dynamics with Persistent Wrinkles.
 
+## EPNet
+
 EPNet predicts elastic garment motion and persistent wrinkle rest states from SMPL motion sequences. The released project contains the trained E-Net/P-Net weights and seven curated demo motions ordered by increasing waist bending and wrinkle strength.
 
 ![EPNet demo](assets/demo_before_after.gif)
 
-The demo shows how abdominal garment wrinkles change before and after waist bending.
+**Figure 1.** Abdominal wrinkles before and after waist bending.
 
 ![EPNet motion comparison](assets/demo_diff.gif)
 
-This comparison shows motions of the same type with different waist-bending amplitudes. Stronger body bending leads to larger abdominal garment deformation and therefore deeper persistent wrinkles.
+**Figure 2.** Motions of the same type with increasing waist-bending amplitudes. Larger abdominal garment deformation produces deeper persistent wrinkles.
 
 ## Project Layout
 
@@ -19,7 +21,9 @@ configs/            EPNet experiment configuration
 data/smpl/          curated motion sequences
 data/txt/smpl/      ordered sequence list
 epnet/              graph P-Net feature/model utilities
-loss/, model/, utils/
+loss/               elastic, bending, collision, and rest-conditioning losses
+model/              E-Net body, cloth, LBS, and neural cloth simulation modules
+utils/              mesh, rotation, IO, configuration, and collision helpers
 results/            released checkpoints only
 scripts/            runnable training/prediction commands
 epnet_cli.py        main command-line entry
