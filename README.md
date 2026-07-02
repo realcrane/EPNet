@@ -74,7 +74,7 @@ data/txt/smpl/smpl_demo.txt
 E-Net checkpoint:
 
 ```text
-results/demo_enet/checkpoints/ncs/epnet_demo_3
+results/demo_enet/checkpoints/enet/epnet_demo_3
 ```
 
 P-Net checkpoint:
@@ -174,3 +174,4 @@ drive-min-frames = 3
 alpha-cutoff = 0.005
 rest-scale = 1.0
 ```
+

@@ -10,7 +10,7 @@
         "angle_step": 0.52,
         "step_smooth_scale": 50,
         "elasticity_load_iter": null,
-        "elasticity_checkpoint": "ncs"
+        "elasticity_checkpoint": "enet"
     },
     "body": {
         "model": "smpl_female_neutral",
