@@ -69,6 +69,9 @@ def export_elastic(
             test_data.load_target(threshold_dir)
 
         checkpoint_path = checkpoint_root / f"{config.name}_{iteration}"
+        demo_checkpoint_path = checkpoint_root / config.name
+        if iteration == stop - 1 and not checkpoint_path.exists() and demo_checkpoint_path.exists():
+            checkpoint_path = demo_checkpoint_path
         print("Loading elastic checkpoint:", checkpoint_path)
         status = elasticity_model.load_weights(str(checkpoint_path))
         if hasattr(status, "expect_partial"):
@@ -107,3 +110,4 @@ if __name__ == "__main__":
         warmup_frames=args.warmup_frames,
         force_zero_rest=args.force_zero_rest,
     )
+
