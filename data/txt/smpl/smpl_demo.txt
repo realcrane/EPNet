@@ -1,0 +1,7 @@
+CMUCanonArmOpen_105_105_43.npz
+CMUCanonArmOpen_105_105_38.npz
+CMUCanonArmOpen_105_105_44.npz
+CMUCanonArmOpen_105_105_37.npz
+CMUCanonArmOpen_02_02_04.npz
+CMUCanonArmOpen_105_105_39.npz
+CMUCanonArmOpen_105_105_45.npz

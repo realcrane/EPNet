@@ -1,0 +1,19 @@
+import os
+
+# Paths
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "."))
+BODY_DIR = os.path.join(ROOT_DIR, "body_models")
+CHECKPOINTS_DIR = os.path.join(ROOT_DIR, "results", "checkpoints")
+DATA_DIR = os.path.join(ROOT_DIR, "data")
+TXT_DIR = os.path.join(ROOT_DIR, "data", "txt")
+LOGS_DIR = os.path.join(ROOT_DIR, "results", "logs")
+RENDER_DIR = os.path.join(ROOT_DIR, "results", "render")
+ELASTICITY_DIR = os.path.join(ROOT_DIR, "results", "elasticity")
+SUB_GRAPH_DIR = os.path.join(ROOT_DIR, "pre_processing", "subgraph")
+
+
+# Skeletons
+NUM_JOINTS = {"smpl": 24, "mixamo": 65}
+
+# Physick
+GRAVITY = 9.81

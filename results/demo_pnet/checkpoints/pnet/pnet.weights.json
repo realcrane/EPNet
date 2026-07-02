@@ -1,0 +1,21 @@
+{
+  "model_config": {
+    "latent_size": 128,
+    "output_size": 1,
+    "num_layers": 2,
+    "n_nodefeatures": 13,
+    "n_edgefeatures_mesh": 12,
+    "message_passing_steps": 3
+  },
+  "stage_feature_mode": "scalar",
+  "stage_normalizer": 3.0,
+  "stage_value": 3.0,
+  "rest_input_mode": "target",
+  "node_position_mode": "absolute",
+  "motion_feature_mode": "none",
+  "local_body_feature_mode": "none",
+  "output_mode": "delta_direct",
+  "drive_threshold": 0.05,
+  "source": "epnet_pnet",
+  "checkpoint": "results/demo_pnet/checkpoints/pnet/pnet.weights.h5"
+}
