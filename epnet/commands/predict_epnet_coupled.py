@@ -6,14 +6,14 @@ from pathlib import Path
 import numpy as np
 import tensorflow as tf
 
-from global_vars import CHECKPOINTS_DIR, ROOT_DIR
+from epnet.global_vars import CHECKPOINTS_DIR, ROOT_DIR
 from model.build import build_ncs_model
 from predict_pnet_tf import load_model as load_pnet_model
 from predict_pnet_tf import predict_threshold
 from epnet.data.elasticity import ElasticityDataset
 from epnet.tf_features import load_or_prepare_features_np
 from epnet.topology import get_topology
-from train_pnet_tf import (
+from epnet.commands.train_pnet_tf import (
     load_local_body_features_np,
     load_motion_features_np,
     make_stage_feature,

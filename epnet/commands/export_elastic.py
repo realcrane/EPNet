@@ -6,8 +6,8 @@ from pathlib import Path
 
 import tensorflow as tf
 
-from global_vars import BODY_DIR, ROOT_DIR
-from main import make_output_dirs, save_elastic_threshold
+from epnet.global_vars import BODY_DIR, ROOT_DIR
+from epnet.commands.train_elastic import make_output_dirs, save_elastic_threshold
 from model.build import build_ncs_model
 from model.cloth import Garment
 from epnet.data import ElasticityDataset
@@ -110,4 +110,3 @@ if __name__ == "__main__":
         warmup_frames=args.warmup_frames,
         force_zero_rest=args.force_zero_rest,
     )
-

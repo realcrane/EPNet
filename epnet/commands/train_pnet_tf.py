@@ -9,7 +9,7 @@ import tensorflow as tf
 from scipy.spatial import cKDTree
 from tqdm import tqdm
 
-from global_vars import ROOT_DIR
+from epnet.global_vars import ROOT_DIR
 from model.build import build_ncs_model
 from epnet.tf_features import load_or_prepare_features_np, load_sorted_npy, wrap_to_pi_np
 from epnet.tf_model import make_pnet_model

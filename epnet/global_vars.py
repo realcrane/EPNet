@@ -1,7 +1,7 @@
 import os
 
 # Paths
-ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "."))
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 BODY_DIR = os.path.join(ROOT_DIR, "body_models")
 CHECKPOINTS_DIR = os.path.join(ROOT_DIR, "results", "checkpoints")
 DATA_DIR = os.path.join(ROOT_DIR, "data")

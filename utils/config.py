@@ -2,7 +2,7 @@ import os
 import json
 from math import ceil
 
-from global_vars import NUM_JOINTS, GRAVITY
+from epnet.global_vars import NUM_JOINTS, GRAVITY
 
 
 class Config:

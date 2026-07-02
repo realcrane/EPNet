@@ -7,13 +7,13 @@ from pathlib import Path
 import numpy as np
 import tensorflow as tf
 
-from global_vars import ROOT_DIR
+from epnet.global_vars import ROOT_DIR
 from model.build import build_ncs_model
 from predict_pnet_tf import load_model, predict_threshold
 from epnet.data import ElasticityDataset
 from epnet.tf_features import load_or_prepare_features_np, load_sorted_npy
 from epnet.topology import get_topology
-from train_pnet_tf import (
+from epnet.commands.train_pnet_tf import (
     load_local_body_features_np,
     load_motion_features_np,
     make_stage_feature,

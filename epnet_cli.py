@@ -266,7 +266,7 @@ def main() -> None:
         if args.sequence_name:
             for name in args.sequence_name:
                 script_args.extend(["--sequence-name", name])
-        run_project_script("train_pipeline.py", script_args, args.gpu_id)
+        run_project_script("epnet/commands/train_pipeline.py", script_args, args.gpu_id)
     elif args.cmd == "train-elastic":
         script_args = ["--config", resolve_project_path(args.config), "--gpu_id", args.gpu_id]
         if args.start_iteration is not None:
@@ -309,7 +309,7 @@ def main() -> None:
             for name in args.sequence_name:
                 script_args.extend(["--sequence-name", name])
         run_project_script(
-            "main.py",
+            "epnet/commands/train_elastic.py",
             script_args,
             args.gpu_id,
         )
@@ -335,7 +335,7 @@ def main() -> None:
                 script_args.extend(["--sequence-name", name])
         if args.force_zero_rest:
             script_args.append("--force-zero-rest")
-        run_project_script("export_elastic.py", script_args, args.gpu_id)
+        run_project_script("epnet/commands/export_elastic.py", script_args, args.gpu_id)
     elif args.cmd == "export-lbs":
         script_args = [
             "--config",
@@ -356,11 +356,11 @@ def main() -> None:
         if args.sequence_name:
             for name in args.sequence_name:
                 script_args.extend(["--sequence-name", name])
-        run_project_script("export_lbs.py", script_args, args.gpu_id)
+        run_project_script("epnet/commands/export_lbs.py", script_args, args.gpu_id)
     elif args.cmd == "train-pnet":
-        run_project_script("train_pnet_tf.py", passthrough_args(args.args))
+        run_project_script("epnet/commands/train_pnet_tf.py", passthrough_args(args.args))
     elif args.cmd == "predict-pnet":
-        run_project_script("predict_pnet_tf.py", passthrough_args(args.args))
+        run_project_script("epnet/commands/predict_pnet_tf.py", passthrough_args(args.args))
     elif args.cmd == "predict":
         script_args = [
             "--config",
@@ -390,9 +390,9 @@ def main() -> None:
         if args.sequence_name:
             for name in args.sequence_name:
                 script_args.extend(["--sequence-name", name])
-        run_project_script("predict_epnet.py", script_args, args.gpu_id)
+        run_project_script("epnet/commands/predict_epnet.py", script_args, args.gpu_id)
     elif args.cmd == "predict-process":
-        run_project_script("predict_epnet_process.py", passthrough_args(args.args))
+        run_project_script("epnet/commands/predict_epnet_process.py", passthrough_args(args.args))
     elif args.cmd == "predict-coupled":
         coupled_args = passthrough_args(args.args)
         gpu_id = None
@@ -400,7 +400,7 @@ def main() -> None:
             if value in ("--gpu_id", "--gpu-id"):
                 gpu_id = coupled_args[i + 1]
                 break
-        run_project_script("predict_epnet_coupled.py", coupled_args, gpu_id)
+        run_project_script("epnet/commands/predict_epnet_coupled.py", coupled_args, gpu_id)
     elif args.cmd == "predict-proxy":
         proxy_iteration = int(args.proxy_iteration)
         final_iteration = (
@@ -434,7 +434,7 @@ def main() -> None:
         if args.skip_existing_proxy and existing_outputs_complete(proxy_garment_dir, args.sequence_name):
             print(f"Skip existing proxy garments: {proxy_garment_dir}")
         else:
-            run_project_script("export_elastic.py", export_args, args.gpu_id)
+            run_project_script("epnet/commands/export_elastic.py", export_args, args.gpu_id)
 
         pnet_args = [
             "--config",
@@ -477,7 +477,7 @@ def main() -> None:
         if args.skip_existing_pnet and existing_outputs_complete(rest_dir, args.sequence_name):
             print(f"Skip existing P-Net plasticity: {rest_dir}")
         else:
-            run_project_script("predict_pnet_tf.py", pnet_args, args.gpu_id)
+            run_project_script("epnet/commands/predict_pnet_tf.py", pnet_args, args.gpu_id)
 
         predict_args = [
             "--config",
@@ -505,7 +505,7 @@ def main() -> None:
         if args.sequence_name:
             for name in args.sequence_name:
                 predict_args.extend(["--sequence-name", name])
-        run_project_script("predict_epnet.py", predict_args, args.gpu_id)
+        run_project_script("epnet/commands/predict_epnet.py", predict_args, args.gpu_id)
     elif args.cmd == "train-proxy-pnet":
         proxy_iteration = int(args.proxy_iteration)
         out_dir = Path(resolve_project_path(args.out_dir))
@@ -540,7 +540,7 @@ def main() -> None:
         if args.sequence_name:
             for name in args.sequence_name:
                 export_args.extend(["--sequence-name", name])
-        run_project_script("export_elastic.py", export_args, args.gpu_id)
+        run_project_script("epnet/commands/export_elastic.py", export_args, args.gpu_id)
 
         train_args = [
             "--config",
@@ -604,13 +604,12 @@ def main() -> None:
                 train_args.extend(["--sequence-name", name])
         if args.max_sequences is not None:
             train_args.extend(["--max-sequences", str(args.max_sequences)])
-        run_project_script("train_pnet_tf.py", train_args, args.gpu_id)
+        run_project_script("epnet/commands/train_pnet_tf.py", train_args, args.gpu_id)
     elif args.cmd == "check-env":
-        run_project_script("check_epnet_env.py", [])
+        run_project_script("epnet/commands/check_env.py", [])
     else:
         raise ValueError(f"Unknown command: {args.cmd}")
 
 
 if __name__ == "__main__":
     main()
-

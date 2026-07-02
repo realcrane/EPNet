@@ -20,7 +20,7 @@ body_models/        SMPL body and tshirt mesh assets
 configs/            EPNet experiment configuration
 data/smpl/          demo motion sequences
 data/txt/smpl/      ordered sequence list
-epnet/              graph P-Net feature/model utilities
+epnet/              EPNet package, command implementations, and shared project constants
 loss/               elastic, bending, collision, and rest-conditioning losses
 model/              E-Net body, cloth, LBS, and neural cloth simulation modules
 utils/              mesh, rotation, IO, configuration, and collision helpers
@@ -134,4 +134,6 @@ python epnet_cli.py train-proxy-pnet \
   --checkpoint-results-dir results/demo_enet_train \
   --out-dir results/demo_pnet_train
 ```
+
+
 

@@ -8,8 +8,8 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras import mixed_precision
 
-import global_vars as gv
-from global_vars import BODY_DIR, CHECKPOINTS_DIR, ELASTICITY_DIR, LOGS_DIR, RENDER_DIR
+import epnet.global_vars as gv
+from epnet.global_vars import BODY_DIR, CHECKPOINTS_DIR, ELASTICITY_DIR, LOGS_DIR, RENDER_DIR
 from model.build import build_ncs_model
 from model.cloth import Garment
 from epnet.data import ElasticityDataset

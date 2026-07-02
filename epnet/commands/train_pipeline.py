@@ -5,7 +5,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from global_vars import ROOT_DIR
+from epnet.global_vars import ROOT_DIR
 from utils.config import MainConfig
 
 
@@ -42,7 +42,7 @@ def train_elastic_iteration(
 ) -> None:
     args = [
         sys.executable,
-        "main.py",
+        "epnet/commands/train_elastic.py",
         "--config",
         str(config),
         "--gpu_id",
@@ -101,7 +101,7 @@ def train_pnet_iteration(
 
     args = [
         sys.executable,
-        "train_pnet_tf.py",
+        "epnet/commands/train_pnet_tf.py",
         "--config",
         str(config),
         "--garment-dir",
@@ -148,7 +148,7 @@ def predict_pnet_iteration(
 
     args = [
         sys.executable,
-        "predict_pnet_tf.py",
+        "epnet/commands/predict_pnet_tf.py",
         "--config",
         str(config),
         "--ckpt",
@@ -176,7 +176,7 @@ def predict_pnet_iteration(
 def run_debug(args: argparse.Namespace, config: Path) -> None:
     elastic_args = [
         sys.executable,
-        "main.py",
+        "epnet/commands/train_elastic.py",
         "--config",
         str(config),
         "--gpu_id",
@@ -287,7 +287,7 @@ def run_normal(args: argparse.Namespace, config: Path) -> None:
     if not args.skip_final_predict and final_pnet_dir is not None:
         predict_args = [
             sys.executable,
-            "predict_epnet.py",
+            "epnet/commands/predict_epnet.py",
             "--config",
             str(config),
             "--gpu_id",

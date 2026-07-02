@@ -5,7 +5,7 @@ from pathlib import Path
 
 import numpy as np
 
-from global_vars import BODY_DIR, ROOT_DIR
+from epnet.global_vars import BODY_DIR, ROOT_DIR
 
 
 @dataclass

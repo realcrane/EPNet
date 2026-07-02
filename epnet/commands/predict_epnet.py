@@ -7,7 +7,7 @@ from pathlib import Path
 import numpy as np
 import tensorflow as tf
 
-from global_vars import CHECKPOINTS_DIR, ROOT_DIR
+from epnet.global_vars import CHECKPOINTS_DIR, ROOT_DIR
 from model.build import build_ncs_model
 from epnet.data import ElasticityDataset
 from epnet.topology import get_topology

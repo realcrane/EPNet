@@ -6,7 +6,7 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras.layers import GRU
 
-from global_vars import BODY_DIR
+from epnet.global_vars import BODY_DIR
 from loss.losses import (
     BendingLoss,
     ClothLoss,

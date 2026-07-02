@@ -8,7 +8,7 @@ from pathlib import Path
 import numpy as np
 from tensorflow.keras.utils import Sequence
 
-from global_vars import BODY_DIR, DATA_DIR, TXT_DIR
+from epnet.global_vars import BODY_DIR, DATA_DIR, TXT_DIR
 from model.sequence import PoseSequence
 
 
