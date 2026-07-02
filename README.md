@@ -3,7 +3,7 @@ This is our ECCV 2026 paper, Self-supervised Garment Dynamics with Persistent Wr
 
 ## EPNet
 
-EPNet predicts elastic garment motion and persistent wrinkle rest states from SMPL motion sequences. The released project contains the trained E-Net/P-Net weights and seven curated demo motions ordered by increasing waist bending and wrinkle strength.
+EPNet predicts elastic garment motion and persistent wrinkle rest states from SMPL motion sequences. The released project contains the trained E-Net/P-Net weights and seven demo motions ordered by increasing waist bending and wrinkle strength.
 
 ![EPNet demo](assets/demo_before_after.gif)
 
@@ -174,5 +174,6 @@ drive-min-frames = 3
 alpha-cutoff = 0.005
 rest-scale = 1.0
 ```
+
 
 
