@@ -5,7 +5,7 @@ from pathlib import Path
 
 import numpy as np
 
-from epnet.global_vars import BODY_DIR, ROOT_DIR
+from epnet.global_vars import ROOT_DIR, body_asset_dir, body_model_name
 
 
 @dataclass
@@ -19,7 +19,7 @@ class GarmentTopology:
 
 def default_topology_cache(config) -> Path:
     garment_name = Path(config.garment.name).stem
-    return Path(ROOT_DIR) / "cache" / "topology" / f"{config.body.model}_{garment_name}.npz"
+    return Path(ROOT_DIR) / "cache" / "topology" / f"{body_model_name(config)}_{garment_name}.npz"
 
 
 def load_topology(path: Path) -> GarmentTopology:
@@ -49,7 +49,7 @@ def save_topology(path: Path, topology: GarmentTopology) -> None:
 def build_topology(config) -> GarmentTopology:
     from model.cloth import Garment
 
-    garment_path = Path(BODY_DIR) / config.body.model / config.garment.name
+    garment_path = body_asset_dir(config) / config.garment.name
     garment = Garment(str(garment_path))
     return GarmentTopology(
         vertices=garment.vertices.astype(np.float32),

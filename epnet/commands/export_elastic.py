@@ -6,7 +6,7 @@ from pathlib import Path
 
 import tensorflow as tf
 
-from epnet.global_vars import BODY_DIR, ROOT_DIR
+from epnet.global_vars import ROOT_DIR, body_asset_dir
 from epnet.commands.train_elastic import make_output_dirs, save_elastic_threshold
 from model.build import build_ncs_model
 from model.cloth import Garment
@@ -44,7 +44,7 @@ def export_elastic(
     force_zero_rest: bool = False,
 ) -> None:
     print("Preparing elastic export data...")
-    garment_obj = Path(BODY_DIR) / config.body.model / config.garment.name
+    garment_obj = body_asset_dir(config) / config.garment.name
     garment = Garment(str(garment_obj))
     edge_count = len(garment.edge_adjacency_index)
 

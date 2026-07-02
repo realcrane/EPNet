@@ -13,7 +13,6 @@
         "elasticity_checkpoint": "enet"
     },
     "body": {
-        "model": "smpl_female_neutral",
         "skeleton": "smpl",
         "input_joints": [
             0,

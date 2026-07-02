@@ -9,7 +9,7 @@ import tensorflow as tf
 from tensorflow.keras import mixed_precision
 
 import epnet.global_vars as gv
-from epnet.global_vars import BODY_DIR, CHECKPOINTS_DIR, ELASTICITY_DIR, LOGS_DIR, RENDER_DIR
+from epnet.global_vars import CHECKPOINTS_DIR, ELASTICITY_DIR, LOGS_DIR, RENDER_DIR, body_asset_dir
 from model.build import build_ncs_model
 from model.cloth import Garment
 from epnet.data import ElasticityDataset
@@ -203,7 +203,7 @@ def main(
 ) -> None:
     output_dirs = make_output_dirs(results_dir)
     print("Preparing elastic training data...")
-    garment_obj = Path(BODY_DIR) / config.body.model / config.garment.name
+    garment_obj = body_asset_dir(config) / config.garment.name
     garment = Garment(str(garment_obj))
     edge_count = len(garment.edge_adjacency_index)
     target_noise_edge_mask = make_target_noise_edge_mask(garment)

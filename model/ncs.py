@@ -6,7 +6,7 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras.layers import GRU
 
-from epnet.global_vars import BODY_DIR
+from epnet.global_vars import body_asset_dir
 from loss.losses import (
     BendingLoss,
     ClothLoss,
@@ -42,7 +42,7 @@ class NCS(tf.keras.Model):
         super().__init__(**kwargs)
         self.config = config
 
-        asset_dir = os.path.join(BODY_DIR, config.body.model)
+        asset_dir = body_asset_dir(config)
         body_model = os.path.join(asset_dir, "body.npz")
         garment_obj = os.path.join(asset_dir, config.garment.name)
 
