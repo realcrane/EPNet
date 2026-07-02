@@ -18,7 +18,7 @@ EPNet predicts elastic garment motion and persistent wrinkle rest states from SM
 ```text
 body_models/        SMPL body and tshirt mesh assets
 configs/            EPNet experiment configuration
-data/smpl/          curated motion sequences
+data/smpl/          demo motion sequences
 data/txt/smpl/      ordered sequence list
 epnet/              graph P-Net feature/model utilities
 loss/               elastic, bending, collision, and rest-conditioning losses
@@ -85,7 +85,7 @@ results/demo_pnet/checkpoints/pnet/pnet.weights.h5
 
 ## Predict PC2
 
-Generate P-Net rest states and final PC2 files for the seven curated motions:
+Generate P-Net rest states and final PC2 files for the seven demo motions:
 
 ```bash
 python epnet_cli.py predict-proxy \
@@ -93,20 +93,7 @@ python epnet_cli.py predict-proxy \
   --gpu-id 0 \
   --checkpoint-results-dir results/demo_enet \
   --pnet-ckpt results/demo_pnet/checkpoints/pnet/pnet.weights.h5 \
-  --out-dir results/demo_prediction \
-  --proxy-iteration 3 \
-  --elasticity-iteration 3 \
-  --alpha-cutoff 0.005 \
-  --drive-threshold 0.05 \
-  --drive-window 5 \
-  --drive-min-frames 3 \
-  --rest-scale 1.0 \
-  --warmup-frames 20 \
-  --collision-projection-threshold 0.004 \
-  --stage-feature-mode scalar \
-  --stage-normalizer 3 \
-  --topology-cache results/cache/topology_epnet_tshirt.npz \
-  --feature-cache-dir results/feature_cache/demo
+  --out-dir results/demo_prediction
 ```
 
 Output PC2 files are written to:
@@ -122,12 +109,10 @@ python epnet_cli.py predict \
   --config configs/epnet_demo.json \
   --gpu-id 0 \
   --plasticity-dir results/demo_prediction/rest \
-  --out-dir results/demo_prediction \
-  --results-dir results/demo_enet \
-  --elasticity-iteration 3 \
-  --warmup-frames 20 \
-  --collision-projection-threshold 0.004
+  --out-dir results/demo_prediction
 ```
+
+The CLI defaults use the released demo settings. Advanced options such as update thresholds, warmup frames, cache paths, and collision projection can still be overridden from the command line.
 
 ## Training
 
@@ -137,9 +122,7 @@ Train E-Net from scratch:
 python epnet_cli.py train-elastic \
   --config configs/epnet_demo.json \
   --gpu-id 0 \
-  --results-dir results/demo_enet_train \
-  --start-iteration 0 \
-  --end-iteration 4
+  --results-dir results/demo_enet_train
 ```
 
 Train frame-wise P-Net from the trained E-Net outputs:
@@ -149,35 +132,6 @@ python epnet_cli.py train-proxy-pnet \
   --config configs/epnet_demo.json \
   --gpu-id 0 \
   --checkpoint-results-dir results/demo_enet_train \
-  --out-dir results/demo_pnet_train \
-  --proxy-iteration 3 \
-  --epochs 80 \
-  --lr 2e-5 \
-  --output-mode delta_direct \
-  --stage-feature-mode scalar \
-  --stage-normalizer 3 \
-  --active-weight 1.0 \
-  --active-threshold 1e-4 \
-  --drive-threshold 0.05 \
-  --inactive-weight 0.03 \
-  --time-batch-size 1 \
-  --topology-cache results/cache/topology_epnet_tshirt.npz \
-  --feature-cache-dir results/feature_cache/demo
+  --out-dir results/demo_pnet_train
 ```
-
-Prediction uses temporal update gating:
-
-```text
-drive-threshold = 0.05
-drive-window = 5
-drive-min-frames = 3
-alpha-cutoff = 0.005
-rest-scale = 1.0
-```
-
-
-
-
-
-
 
