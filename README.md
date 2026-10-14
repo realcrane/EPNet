@@ -1,4 +1,7 @@
 # Self-supervised-Garment-Dynamics-with-Persistent-Wrinkles
+
+![Paper poster](assets/2674_Yang_4040x2880.png)
+
 This repository provides a demo release for our ECCV 2026 paper, [Self-supervised Garment Dynamics with Persistent Wrinkles](https://doi.org/10.48550/arXiv.2606.25065).
 Video link: [YouTube](https://youtu.be/BKwrg1-WVZw?si=l1nOh4AXBSvRIYNR).
 
